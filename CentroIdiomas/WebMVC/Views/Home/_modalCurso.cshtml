@@ -1,0 +1,75 @@
+﻿@model Tuple<Matricula,Curso>
+
+    <!-- Modal HTML Markup -->
+    <div id="ModalMatriForm" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body m-5">
+                    <h4>Esta seguro que desea matricular este curso?</h4>
+                    <br/>
+                    <br/>
+                    <form id="form2" class="row" method="POST" asp-action="Registro">
+                        <input type="hidden" name="_token" value="" />
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label asp-for="Item1.Id_curso" class="control-label"></label>
+                                    <div>
+                                        <input asp-for="Item1.Id_curso" class="form-control input-lg" readonly />
+                                    </div>
+                                    <span asp-validation-for="Item1.Id_curso" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Item2.Nombre_Curso" class="control-label"></label>
+                                    <div>
+                                        <input asp-for="Item2.Nombre_Curso" class="form-control input-lg" readonly />
+                                    </div>
+                                    <span asp-validation-for="Item2.Nombre_Curso" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Item1.Costo" class="control-label"></label>
+                                    <div>
+                                        <input asp-for="Item1.Costo" class="form-control input-lg" readonly />
+                                    </div>
+                                    <span asp-validation-for="Item1.Costo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label asp-for="Item1.Nivel_intensidad" class="control-label"></label>
+                                    <div>
+                                        <input asp-for="Item1.Nivel_intensidad" class="form-control input-lg" readonly />
+                                    </div>
+                                    <span asp-validation-for="Item1.Nivel_intensidad" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Item2.Horas" class="control-label"></label>
+                                    <div>
+                                        <input id="horas_curso" asp-for="Item2.Horas" class="form-control input-lg" readonly />
+                                    </div>
+                                    <span asp-validation-for="Item2.Horas" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Fecha de Finalización</label>
+                                    <div>
+                                        <input id="lbl" class="form-control input-lg" readonly/>
+                                    </div>
+                                    <span class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-auto mt-5">
+                            <div class="col">
+                                <Button type="submit" class="btn btn-dark">
+                                    Confirmar Matricula
+                                </Button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->

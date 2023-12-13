@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Clase>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Id_clase)</th>
+                <th>@Html.DisplayNameFor(m => m.Id_curso)</th>
+                <th>@Html.DisplayNameFor(m => m.Id_estudiante)</th>
+                <th>@Html.DisplayNameFor(m => m.Id_profesor)</th>
+                <th>@Html.DisplayNameFor(m => m.Inicio)</th>
+                <th>@Html.DisplayNameFor(m => m.Final)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var i in Model)
+        {
+            <tr class="m-3">
+                <td>@i.Id_clase</td>
+                <td>@i.Id_curso</td>
+                <td>@i.Id_estudiante</td>
+                <td>@i.Id_profesor</td>
+                <td>@i.Inicio.ToString("MM/dd/yyyy")</td>
+                <td>@i.Final.ToString("MM/dd/yyyy")</td>
+                <th>
+                    <a asp-controller="CursosEstudiante" asp-action="Edit"
+                       asp-route-id="@i.Id_clase" class="btn btn-primary">Modificar</a>
+                </th>
+                <th>
+                    <a asp-controller="CursosEstudiante" asp-action="Delete"
+                       asp-route-id="@i.Id_clase" class="btn btn-primary">Eliminar</a>
+                </th>
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <p>No tiene Clases programadas</p>
+}
